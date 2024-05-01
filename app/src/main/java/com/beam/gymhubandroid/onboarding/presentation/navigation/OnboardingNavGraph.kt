@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.beam.gymhubandroid.onboarding.domain.model.NavDestination
 import com.beam.gymhubandroid.onboarding.domain.model.NavDestination.BodyInfo
 import com.beam.gymhubandroid.onboarding.domain.model.NavDestination.Congratulation
 import com.beam.gymhubandroid.onboarding.domain.model.NavDestination.Goal

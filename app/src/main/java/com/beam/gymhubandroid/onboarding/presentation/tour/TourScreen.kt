@@ -53,6 +53,7 @@ fun TourScreenContent(navController: NavController) {
     Scaffold(
         topBar = {
             OnboardingTopAppBar(
+                title = "Tour",
                 showSkip = !canContinue,
                 onClickBackNav = {
                     navController.popBackStack()
@@ -123,10 +124,15 @@ fun SliderTourControlButton(text: String, modifier: Modifier, onClick: () -> Uni
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OnboardingTopAppBar(showSkip: Boolean, onClickBackNav: () -> Unit, onClickSkip: () -> Unit) {
+fun OnboardingTopAppBar(
+    title: String = "",
+    showSkip: Boolean,
+    onClickBackNav: () -> Unit,
+    onClickSkip: (() -> Unit)? = null
+) {
     TopAppBar(
         title = {
-            Text(text = "Tour")
+            Text(text = title)
         },
         navigationIcon = {
             IconButton(onClick = { onClickBackNav() }) {
@@ -135,7 +141,7 @@ fun OnboardingTopAppBar(showSkip: Boolean, onClickBackNav: () -> Unit, onClickSk
         },
         actions = {
             if (showSkip) {
-                TextButton(onClick = onClickSkip) {
+                TextButton(onClick = { onClickSkip?.invoke() }) {
                     Text(text = "Skip")
                 }
             }
