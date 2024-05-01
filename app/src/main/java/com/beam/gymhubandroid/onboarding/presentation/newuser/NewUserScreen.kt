@@ -91,6 +91,7 @@ fun NewUserScreenContent(navController: NavController) {
                 },
                 maxLines = 1,
                 singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 onValueChange = { newValue ->
                     email = newValue
                     canContinue = isFormValid(email, password, termsChecked)
