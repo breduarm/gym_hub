@@ -107,14 +107,14 @@ fun WelcomeMessage(modifier: Modifier) {
 }
 
 @Composable
-fun SignUpButton(onClick: () -> Unit) {
+fun GymHubButton(text: String, onClick: () -> Unit) {
     Button(
         onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 24.dp)
     ) {
-        Text(text = "Start")
+        Text(text = text)
     }
 }
 
@@ -136,7 +136,7 @@ fun WelcomeTopAppBar(onClickLogin: () -> Unit) {
 @Composable
 fun WelcomeBottomAppBar(navController: NavController) {
     BottomAppBar(containerColor = Color.White) {
-        SignUpButton {
+        GymHubButton(text = "Start") {
             navController.navigate(Onboarding.route)
         }
     }
