@@ -58,7 +58,7 @@ fun WelcomeScreenContent(navController: NavController) {
                 .padding(innerPadding)
         ) {
             Spacer(modifier = Modifier.height(32.dp))
-            WelcomeLogo(modifier = Modifier.align(Alignment.CenterHorizontally))
+            AppLogo(modifier = Modifier.align(Alignment.CenterHorizontally))
             Spacer(modifier = Modifier.height(16.dp))
             WelcomeIllustration(modifier = Modifier.align(Alignment.CenterHorizontally))
             Spacer(modifier = Modifier.height(32.dp))
@@ -68,7 +68,7 @@ fun WelcomeScreenContent(navController: NavController) {
 }
 
 @Composable
-fun WelcomeLogo(modifier: Modifier) {
+fun AppLogo(modifier: Modifier) {
     Icon(
         imageVector = Icons.Default.Face,
         contentDescription = "App logo",
@@ -107,9 +107,10 @@ fun WelcomeMessage(modifier: Modifier) {
 }
 
 @Composable
-fun GymHubButton(text: String, onClick: () -> Unit) {
+fun GymHubButton(text: String, enabled: Boolean = true, onClick: () -> Unit) {
     Button(
         onClick = onClick,
+        enabled = enabled,
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 24.dp)
