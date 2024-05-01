@@ -6,6 +6,6 @@ sealed class NavDestination(val route: String) {
     data object PersonalInfo : NavDestination("personal_info")
     data object BodyInfo : NavDestination("body_info")
     data object Goal : NavDestination("goal")
-    data object Congratulation : NavDestination("congratulation")
+    data object Congratulations : NavDestination("congratulations")
     data object Authentication : NavDestination("authentication")
 }

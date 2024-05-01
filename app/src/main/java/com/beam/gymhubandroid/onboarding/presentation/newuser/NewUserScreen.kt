@@ -70,7 +70,9 @@ fun NewUserScreenContent(navController: NavController) {
             )
         },
         bottomBar = {
-            OnboardingBottomAppBar(navController = navController, canContinue = canContinue)
+            OnboardingBottomAppBar(canContinue = canContinue) {
+                navController.navigate(PersonalInfo.route)
+            }
         }
     ) { innerPadding ->
         Column(
@@ -87,6 +89,8 @@ fun NewUserScreenContent(navController: NavController) {
                 label = {
                     Text(text = "Enter your email")
                 },
+                maxLines = 1,
+                singleLine = true,
                 onValueChange = { newValue ->
                     email = newValue
                     canContinue = isFormValid(email, password, termsChecked)
@@ -161,14 +165,16 @@ fun NewUserScreenContent(navController: NavController) {
 }
 
 @Composable
-fun OnboardingBottomAppBar(navController: NavController, canContinue: Boolean) {
+fun OnboardingBottomAppBar(
+    canContinue: Boolean,
+    onClickContinue: () -> Unit
+) {
     BottomAppBar(containerColor = Color.White) {
         GymHubButton(
             text = "Continue",
             enabled = canContinue,
-        ) {
-            navController.navigate(PersonalInfo.route)
-        }
+            onClick = onClickContinue
+        )
     }
 }
 
