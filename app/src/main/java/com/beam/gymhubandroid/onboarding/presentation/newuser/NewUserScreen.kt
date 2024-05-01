@@ -167,12 +167,13 @@ fun NewUserScreenContent(navController: NavController) {
 
 @Composable
 fun OnboardingBottomAppBar(
+    title: String = "Continue",
     canContinue: Boolean,
     onClickContinue: () -> Unit
 ) {
     BottomAppBar(containerColor = Color.White) {
         GymHubButton(
-            text = "Continue",
+            text = title,
             enabled = canContinue,
             onClick = onClickContinue
         )
